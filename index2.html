@@ -19,8 +19,7 @@
 
 <script>
     const notesContainer = document.querySelector('.second-page')
-    const notes = getNotesFromDB().reverse()
-
+    const notes = getNotesFromDB()
     if (!notes) {
         notesContainer.innerHTML = `
             <div style="display: flex; justify-content: center;
@@ -32,7 +31,7 @@
             </div>
         `
     } else {
-        notes.map(({
+        notes.reverse().map(({
             note
         }) => {
             const li = document.createElement('li')
