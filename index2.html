@@ -19,7 +19,7 @@
 
 <script>
     const notesContainer = document.querySelector('.second-page')
-    const notes = getNotesFromDB()
+    const notes = getNotesFromDB().reverse()
 
     if (!notes) {
         notesContainer.innerHTML = `
