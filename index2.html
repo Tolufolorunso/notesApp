@@ -5,16 +5,39 @@
     <script src="index.js"></script>
 </head>
 
-<div class="second-page">
-    <ol id="notes-list">
+<body>
+    <div class="second-page">
+        <ol id="notes-list">
 
-    </ol>
-</div>
-
-<a href="index.html"><h3>Back</h3></a>
+        </ol>
+    </div>
+    <a href="index.html">
+        <h3>Back</h3>
+    </a>
+</body>
 
 
 <script>
+    const notesContainer = document.querySelector('.second-page')
+    const notes = getNotesFromDB()
 
-
+    if (!notes) {
+        notesContainer.innerHTML = `
+            <div style="display: flex; justify-content: center;
+    text-align: center;">
+                <div>
+                    <h3>Notes is empty</h3>
+                    <p>Start adding note, enjoy the app</p>
+                </div>
+            </div>
+        `
+    } else {
+        notes.map(({
+            note
+        }) => {
+            const li = document.createElement('li')
+            li.innerHTML = note
+            document.getElementById('notes-list').appendChild(li)
+        })
+    }
 </script>
